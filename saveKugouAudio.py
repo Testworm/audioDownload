@@ -124,10 +124,12 @@ def cbk(a,b,c):
 
 # # 保存为MP3, 保存到特定文件夹下面：文件夹以专辑名字命名
 def saveAudio(url, album, filename):
-    filepath = os.getcwd()+'\\mp3\\'+album
+    # filepath = os.getcwd()+'\\mp3\\'+album
+    filepath = os.getcwd()+'/mp3/'+album
     if os.path.exists(filepath):
         # os.removedirs(filepath)
-        mp3 = os.path.join(filepath + '\\', '' + filename + '.mp3')
+        # mp3 = os.path.join(filepath + '\\', '' + filename + '.mp3')
+        mp3 = os.path.join(filepath + '/', '' + filename + '.mp3')
         if url == '':
             print('the url is NUll, pass')
         else:
@@ -135,7 +137,8 @@ def saveAudio(url, album, filename):
             print(filename+'下载完毕')
     else:
         os.makedirs(filepath)
-        mp3 = os.path.join(filepath + '\\', '' + filename + '.mp3')
+        # mp3 = os.path.join(filepath + '\\', '' + filename + '.mp3')
+        mp3 = os.path.join(filepath + '/', '' + filename + '.mp3')
         if url == '':
             print('the url is NUll, pass')
         else:
@@ -160,8 +163,10 @@ def mp3Creator(singerId):
             saveAudio(playUrl, validateTitle(albumname[i]), validateTitle(audioName))
 
 
-mp3Creator(34450)
+# mp3Creator(34450)
 
 
-
+if __name__ == '__main__':
+    mp3 = 'http://tyst.migu.cn/public/product5th/product28/2019/02/15/2015%E5%B9%B411%E6%9C%8826%E6%97%A514%E7%82%B943%E5%88%86%E7%B4%A7%E6%80%A5%E5%86%85%E5%AE%B9%E5%87%86%E5%85%A5%E5%8C%97%E4%BA%AC%E5%B0%91%E5%9F%8E2%E9%A6%96/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_128_16_Stero/63681000367.mp3'
+    saveAudio(mp3, '爬虫下载', '音乐2')
 
