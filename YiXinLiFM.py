@@ -80,11 +80,15 @@ def saveAudio(url, album, filename):
 if __name__ == '__main__':
 
     album = '壹心理'
-    for id in range(1, 99395999):
+    for id in range(38, 99395999):
         res = getMp3Response(id)
         if res:
-            title = str(id) + '-' + res.get('data').get('title')
-            url = res.get('data').get('url')
-            saveAudio(url, album, title)
+            try:
+                title = str(id) + '-' + res.get('data').get('title')
+                url = res.get('data').get('url')
+                saveAudio(url, album, title)
+            except:
+                print(str(res) + '为空')
+
 
 
